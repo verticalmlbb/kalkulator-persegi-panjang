@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b1020">
+    <meta name="description" content="Hitung luas, keliling, dan diagonal persegi panjang dengan mudah.">
+    <title>Kalkulator Persegi Panjang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="page-shell">
+        <header class="topbar">
+            <a class="brand" href="#" aria-label="Ruang Hitung, beranda">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <rect x="4" y="6" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/>
+                        <path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+                    </svg>
+                </span>
+                <span>ruang<span class="brand-light">hitung</span></span>
+            </a>
+            <span class="topbar-note"><span class="status-dot"></span> Kalkulator geometri</span>
+        </header>
+
+        <section class="calculator-layout" aria-labelledby="page-title">
+            <div class="intro">
+                <div class="eyebrow"><span class="eyebrow-line"></span> GEOMETRI DASAR</div>
+                <h1 id="page-title">Hitung persegi panjang<span class="title-dot">.</span></h1>
+                <p class="intro-copy">Masukkan panjang dan lebar untuk mengetahui luas, keliling, dan diagonalnya dalam sekejap.</p>
+
+                <figure class="rectangle-visual">
+                    <figcaption>
+                        <span class="visual-indicator" aria-hidden="true"></span>
+                        Visual persegi panjang
+                    </figcaption>
+                    <svg class="rectangle-diagram" viewBox="0 0 360 210" role="img" aria-labelledby="diagram-title diagram-description">
+                        <title id="diagram-title">Diagram persegi panjang</title>
+                        <desc id="diagram-description">Ilustrasi persegi panjang dengan garis diagonal serta penanda panjang dan lebar.</desc>
+                        <defs>
+                            <pattern id="diagram-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                                <path d="M20 0H0V20" fill="none" stroke="currentColor" stroke-opacity=".055" stroke-width="1"/>
+                            </pattern>
+                            <marker id="dimension-arrow" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M7 1 1 4l6 3" fill="none" stroke="context-stroke" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                            </marker>
+                        </defs>
+                        <rect class="diagram-grid" width="360" height="210" rx="12"/>
+                        <path class="diagonal-line" id="visual-diagonal" d="M80 37 280 147"/>
+                        <rect class="rectangle-shape" id="visual-rectangle" x="80" y="37" width="200" height="110" rx="2"/>
+                        <path class="dimension-line" id="length-dimension" d="M80 174H280" marker-start="url(#dimension-arrow)" marker-end="url(#dimension-arrow)"/>
+                        <path class="dimension-line" id="width-dimension" d="M52 37V147" marker-start="url(#dimension-arrow)" marker-end="url(#dimension-arrow)"/>
+                        <text class="dimension-text" id="visual-length" x="183" y="194" text-anchor="middle">Panjang</text>
+                        <text class="dimension-text" id="visual-width" x="37" y="92" text-anchor="middle" transform="rotate(-90 37 92)">Lebar</text>
+                        <text class="diagonal-label" id="visual-diagonal-label" x="188" y="87" text-anchor="middle">d</text>
+                    </svg>
+                    <p class="visual-caption">p = panjang <span aria-hidden="true">·</span> l = lebar <span aria-hidden="true">·</span> d = diagonal</p>
+                </figure>
+
+                <div class="formula-card" aria-label="Rumus persegi panjang">
+                    <div class="formula-heading">
+                        <span class="formula-icon" aria-hidden="true">ƒ</span>
+                        <span>Rumus yang digunakan</span>
+                    </div>
+                    <div class="formula-list">
+                        <div><span>Luas</span><strong>p × l</strong></div>
+                        <div><span>Keliling</span><strong>2 × (p + l)</strong></div>
+                        <div><span>Diagonal</span><strong>√(p² + l²)</strong></div>
+                    </div>
+                </div>
+                <p class="tip"><span aria-hidden="true">✦</span> Gunakan satuan yang sama untuk panjang dan lebar.</p>
+            </div>
+
+            <section class="calculator-card" aria-label="Kalkulator persegi panjang">
+                <div class="card-heading">
+                    <div>
+                        <p class="card-kicker">KALKULATOR</p>
+                        <h2>Masukkan ukuran</h2>
+                    </div>
+                    <span class="card-badge" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M4 7.5A2.5 2.5 0 0 1 6.5 5h11A2.5 2.5 0 0 1 20 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 16.5v-9Z" stroke="currentColor" stroke-width="1.7"/>
+                            <path d="M8 9v2m4-2v2m4-2v2m-8 3v2m4-2v2m4-2v2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                </div>
+
+                <form id="calculator-form" novalidate>
+                    <div class="field-group">
+                        <label for="length">Panjang <span class="dimension-label">p</span></label>
+                        <div class="input-wrap">
+                            <input id="length" name="length" type="number" min="0" step="any" placeholder="Contoh: 12" inputmode="decimal" autocomplete="off" aria-describedby="form-error">
+                            <span class="unit">cm</span>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label for="width">Lebar <span class="dimension-label">l</span></label>
+                        <div class="input-wrap">
+                            <input id="width" name="width" type="number" min="0" step="any" placeholder="Contoh: 8" inputmode="decimal" autocomplete="off" aria-describedby="form-error">
+                            <span class="unit">cm</span>
+                        </div>
+                    </div>
+                    <p class="form-error" id="form-error" role="alert" aria-live="polite"></p>
+                    <div class="button-row">
+                        <button class="calculate-button" type="submit">
+                            Hitung sekarang
+                            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                                <path d="M4.5 10h11m-4.5-4.5L15.5 10 11 14.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="reset-button" id="reset-button" type="reset" aria-label="Hapus semua isian" title="Hapus semua isian">
+                            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                                <path d="M3.5 5.5h13m-11.5 0 .7 10.1a1.5 1.5 0 0 0 1.5 1.4h5.6a1.5 1.5 0 0 0 1.5-1.4l.7-10.1M8 5.5V3.8A.8.8 0 0 1 8.8 3h2.4a.8.8 0 0 1 .8.8v1.7m-3.5 3v5m3-5v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+
+                <section class="results" id="results" aria-labelledby="results-title" aria-live="polite" hidden>
+                    <div class="results-heading">
+                        <h3 id="results-title">Hasil perhitungan</h3>
+                        <span class="result-check" aria-hidden="true">✓</span>
+                    </div>
+                    <div class="result-grid">
+                        <article class="result-item result-primary">
+                            <span class="result-label">Luas</span>
+                            <strong id="area-result">—</strong>
+                            <span class="result-unit">cm²</span>
+                        </article>
+                        <article class="result-item">
+                            <span class="result-label">Keliling</span>
+                            <strong id="perimeter-result">—</strong>
+                            <span class="result-unit">cm</span>
+                        </article>
+                        <article class="result-item">
+                            <span class="result-label">Diagonal</span>
+                            <strong id="diagonal-result">—</strong>
+                            <span class="result-unit">cm</span>
+                        </article>
+                    </div>
+                </section>
+                <p class="card-footnote"><span aria-hidden="true">⌁</span> Hasil dihitung otomatis dan dibulatkan hingga 2 angka desimal.</p>
+            </section>
+        </section>
+
+        <footer class="page-footer">
+            <span>Belajar geometri jadi lebih mudah.</span>
+            <span>Dirancang untuk membantu proses belajarmu <span class="footer-star" aria-hidden="true">✳</span></span>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
